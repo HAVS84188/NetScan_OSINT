@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NetScan Advanced Deep Scan - Test your browser against Canvas Fingerprinting, tracker evasion, and hardware identification.">
+    <meta name="keywords" content="Canvas fingerprinting, browser tracking, GPU hash, ad-blocker detection, cybersecurity, privacy threats">
+    <meta property="og:title" content="NetScan // Deep Scan">
+    <meta property="og:description" content="Extract hardware-level signatures through Canvas Fingerprinting.">
+    <title>NetScan // Deep Scan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">NetScan<span>_OSINT</span></div>
+        <nav>
+            <a href="index.html">Basic Intel</a>
+            <a href="advanced.html" class="active">Deep Scan</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="header-title">
+            <h1>Advanced Fingerprinting</h1>
+            <p>Extracting hardware-level signatures...</p>
+        </div>
+
+        <div class="grid">
+            <!-- Canvas Fingerprint -->
+            <div class="card">
+                <div class="card-header">GPU & Canvas Signature</div>
+                <div class="card-body">
+                    <p class="explanation">Silent GPU rendering generates a highly accurate tracking hash that is nearly impossible to delete.</p>
+                    <div class="data-row"><span class="label">Canvas Hash:</span> <span id="canvas-hash" class="data loading">Generating...</span></div>
+                    <canvas id="fingerprint-canvas" width="200" height="50" style="display:none;"></canvas>
+                </div>
+            </div>
+
+            <!-- AdBlocker Detection -->
+            <div class="card">
+                <div class="card-header">Evasion Tactics</div>
+                <div class="card-body">
+                    <p class="explanation">Detecting automated browsers (bots) or Ad-Blockers allows sites to modify their tracking strategies.</p>
+                    <div class="data-row"><span class="label">Ad Blocker:</span> <span id="adblock-status" class="data">Testing...</span></div>
+                    <div class="data-row"><span class="label">Browser Automation:</span> <span id="webdriver-status" class="data">Testing...</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Analysis Section -->
+        <section class="detailed-analysis">
+            <h2>Deep Scan Mechanisms & Vulnerabilities</h2>
+            
+            <div class="analysis-block">
+                <h3>The Mechanics of Canvas Fingerprinting</h3>
+                <p>Canvas fingerprinting is a stealth tracking method that exploits the HTML5 <code>&lt;canvas&gt;</code> element. When you visit a site utilizing this technique, a hidden script instructs your browser to draw a complex, invisible graphic featuring specific fonts, colors, and overlapping geometric shapes. Because different graphics cards (GPUs), display drivers, and operating systems process anti-aliasing and text rendering at a microscopic level differently, the resulting image is rendered with slight pixel variations on every unique machine.</p>
+                <p>The script then reads the pixel data of this invisible image, converts it into a long text string, and hashes it into a short numerical ID (like the one displayed above). This ID acts like a permanent supercookie. Even if you use a VPN, browse in Incognito mode, or rigorously delete your cookies, your hardware will always draw that exact same image, resulting in the exact same tracking hash.</p>
+            </div>
+
+            <div class="analysis-block">
+                <h3>Tracker Evasion & Countermeasures</h3>
+                <p>Modern tracking is a cat-and-mouse game. If you install an ad-blocker or strict privacy extensions, tracking scripts actively hunt for them. By creating invisible HTML elements labeled with common ad-industry class names (like "adsbox"), the site can monitor if your browser crushes or hides that element. If it detects an ad-blocker, hostile websites can deny you entry entirely, or they can switch to more aggressive, server-side tracking methods that your browser extensions cannot intercept.</p>
+                <p>Similarly, detecting "webdriver" status reveals if the browser is being puppeted by a bot. While useful for stopping spam and DDoS attacks, tracking networks also use this to ensure their data sets aren't polluted by non-human traffic, ensuring that the profiles they build on actual humans remain highly accurate and profitable.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Site developed by <a href="https://havs84188.github.io/AVS_agencies/" target="_blank" rel="noopener noreferrer">AVS Agencies</a> owner Mr. Atharva Veer Singh.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

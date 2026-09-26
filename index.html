@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NetScan OSINT Dashboard - Analyze your digital footprint, network identity, and discover what hidden data your browser leaks to websites.">
+    <meta name="keywords" content="OSINT, browser fingerprinting, digital footprint, IP leak, cybersecurity, privacy analysis">
+    <meta property="og:title" content="NetScan // Digital Footprint">
+    <meta property="og:description" content="Discover the hardware and network secrets your browser broadcasts to the web.">
+    <title>NetScan // Digital Footprint</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">NetScan<span>_OSINT</span></div>
+        <nav>
+            <a href="index.html" class="active">Basic Intel</a>
+            <a href="advanced.html">Deep Scan</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="header-title">
+            <h1>Target Overview</h1>
+            <p>Scanning active browser session...</p>
+        </div>
+
+        <div class="grid">
+            <!-- Network Card -->
+            <div class="card">
+                <div class="card-header">Network identity</div>
+                <div class="card-body">
+                    <p class="explanation">Your IP exposes your general physical location and Internet Service Provider.</p>
+                    <div class="data-row"><span class="label">Public IP:</span> <span id="public-ip" class="data loading">Fetching...</span></div>
+                    <div class="data-row"><span class="label">Connection:</span> <span id="connection-type" class="data">Analyzing...</span></div>
+                </div>
+            </div>
+
+            <!-- Device Card -->
+            <div class="card">
+                <div class="card-header">Hardware & OS</div>
+                <div class="card-body">
+                    <p class="explanation">Hardware data points build a highly unique statistical profile of your machine.</p>
+                    <div class="data-row"><span class="label">Platform:</span> <span id="os-info" class="data">...</span></div>
+                    <div class="data-row"><span class="label">CPU Cores:</span> <span id="cpu-cores" class="data">...</span></div>
+                    <div class="data-row"><span class="label">Resolution:</span> <span id="resolution" class="data">...</span></div>
+                    <div class="data-row"><span class="label">Language:</span> <span id="language" class="data">...</span></div>
+                </div>
+            </div>
+
+            <!-- Privacy Card -->
+            <div class="card">
+                <div class="card-header">Privacy Posture</div>
+                <div class="card-body">
+                    <p class="explanation">Shows if third-party networks can easily store and read tracking IDs on your machine.</p>
+                    <div class="data-row"><span class="label">Do Not Track:</span> <span id="dnt-status" class="data">...</span></div>
+                    <div class="data-row"><span class="label">Cookies:</span> <span id="cookie-status" class="data">...</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Analysis Section -->
+        <section class="detailed-analysis">
+            <h2>System Purpose & Threat Analysis</h2>
+            
+            <div class="analysis-block">
+                <h3>Network Identity Tracking</h3>
+                <p>Every time your device connects to a website, it must share its Public IP Address so the server knows where to send the website's data back to. However, this IP address is tied to your Internet Service Provider (ISP) and geographically links you to a specific city or neighborhood. Advertising networks and data brokers log this IP alongside your browsing habits to build a localized profile, tracking you as you move from site to site across the web.</p>
+            </div>
+
+            <div class="analysis-block">
+                <h3>Hardware & OS Profiling (Fingerprinting)</h3>
+                <p>Browsers willingly hand over specific details about your device's hardware, ostensibly to help websites load the correct version of a page (like serving a mobile view versus a desktop view). But trackers exploit this. By combining your operating system version, the exact number of CPU cores your processor has, your system language, and your monitor's exact pixel resolution, they create a "fingerprint." Even if millions of people visit a site, it is highly likely that your specific combination of these hardware traits is entirely unique to you.</p>
+            </div>
+
+            <div class="analysis-block">
+                <h3>The "Do Not Track" Illusion</h3>
+                <p>The "Do Not Track" (DNT) setting in your browser is nothing more than a polite digital request sent in the header of your web traffic. There is no legal or technical enforcement requiring a website to obey it. Today, the vast majority of ad networks, social media trackers, and analytic platforms completely ignore the DNT signal. If cookies are enabled, trackers will still drop small text files onto your hard drive to remember your identity and log your actions over months or even years.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Site developed by <a href="https://havs84188.github.io/AVS_agencies/" target="_blank" rel="noopener noreferrer">AVS Agencies</a> owner Mr. Atharva Veer Singh.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
